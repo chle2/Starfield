@@ -22,6 +22,11 @@ class Particle
 	myAngle = 2.05;
 	mySize = 30; 
 	}
+	void show()
+	{
+	fill(myColor); 
+	ellipse((float)myX,(float)myY,mySize,mySize);
+	}
 }
 
 class OddballParticle //inherits from Particle
@@ -35,6 +40,11 @@ class OddballParticle //inherits from Particle
 	mySpeed = 5.6;
 	myAngle = 2.05;
 	mySize = (int)(Math.random()*50)
+	}
+	void show()
+	{
+	fill(myColor); 
+	ellipse((float)myX,(float)myY,mySize,mySize);
 	}
 
 }
