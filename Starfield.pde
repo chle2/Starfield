@@ -1,12 +1,23 @@
 //your code here
+Particle stars [];
 void setup()
 {
 	//your code here
+	size (300, 300); 
+	background (0); 
+	stars =new Particle[100];
+	for(int i=0;i<stars.length;i++){
+		stars[i]=new Particle();
+	}
+	stars[0]= new OddballParticle();
 	
 }
 void draw()
 {
 	//your code here
+	for(int i=0;i<stars.length;i++){
+		stars[i].move();
+		stars[i].show();
 }
 class Particle
 {
@@ -21,6 +32,11 @@ class Particle
 	mySpeed = 5.6;
 	myAngle = 2.05;
 	mySize = 30; 
+	}
+	void move()
+	{
+	myAngle = myAngle + 0.5; 
+	mySpeed = mySpeed + 0.5;
 	}
 	void show()
 	{
