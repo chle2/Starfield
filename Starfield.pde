@@ -1,11 +1,10 @@
 //your code here
-Particle stars [];
+Particle [] stars = new Particle [100];
 void setup()
 {
   //your code here
   size (300, 300); 
   background (0); 
-  stars =new Particle[100];
   for(int i=0;i<stars.length;i++){
     stars[i]=new Particle();
   }
