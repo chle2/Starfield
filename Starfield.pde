@@ -17,6 +17,7 @@ void draw()
   for(int i = 0;i < stars.length;i++){
     stars[i].show();
     stars[i].move(); 
+    }
 }
 class Particle
 {
@@ -44,7 +45,7 @@ class Particle
   }
 }
 
-class OddballParticle //inherits from Particle
+class OddballParticle extends Particle //inherits from Particle
 { 
   //your code here
   OddballParticle()
