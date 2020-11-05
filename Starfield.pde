@@ -7,16 +7,16 @@ void setup()
   background (0); 
   for(int i=0;i<stars.length;i++){
     stars[i]=new Particle();
+    stars[0]= new OddballParticle();
   }
-  stars[0]= new OddballParticle();
   
 }
 void draw()
 {
   //your code here
   for(int i=0;i<stars.length;i++){
-    stars[i].move();
     stars[i].show();
+    stars[i].move(); 
 }
 class Particle
 {
@@ -25,22 +25,22 @@ class Particle
   double mySpeed, myAngle; 
   Starling ()
   {
-  myX = 150; 
-  myY = 150; 
+  myX = (int)(Math.random()*300); 
+  myY = (int)(Math.random()*300); 
   myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-  mySpeed = (Math.random()*4)+1;
-  myAngle = (Math.random()*Math.PI*2);
+  mySpeed = (Math.random()*4);
+  myAngle = (Math.random()*2)*Math.PI;
   mySize = 30; 
   }
   void move()
   {
-  myAngle = myAngle + 0.5; 
-  mySpeed = mySpeed + 0.5;
+  myX = myX + Math.cos(myAngle) * mySpeed;
+  myY = myY + Math.sin(myAngle) * mySpeed;
   }
   void show()
   {
   fill(myColor); 
-  ellipse((float)myX,(float)myY,mySize,mySize);
+  ellipse((float)myX,(float)myY,(float)mySize,(float)mySize);
   }
 }
 
@@ -49,17 +49,12 @@ class OddballParticle //inherits from Particle
   //your code here
   Particle()
   {
-  myX = 150; 
-  myY = 150;
+  myX = (int)(Math.random()*300); 
+  myY = (int)(Math.random()*300);
   myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
   mySpeed = (Math.random()*4)+1;
   myAngle = (Math.random()*Math.PI*2);
   mySize = (int)(Math.random()*50);
-  }
-   void move()
-  {
-  myAngle = myAngle + 0.5; 
-  mySpeed = mySpeed + 0.5;
   }
   void show()
   {
